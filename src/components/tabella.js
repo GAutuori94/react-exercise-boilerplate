@@ -8,7 +8,7 @@ export class Table extends React.Component {
   };
 
   handleFilterList = (text) => {
-  const filterd = this.state.list.filter((item) => text === "" || item.first_name.includes(text) || item.last_name.includes(text))
+  const filterd = this.state.list.filter((item) => text.toLowerCase() === "" || item.first_name.toLowerCase().includes(text) || item.last_name.toLowerCase().includes(text) || item.phone.includes(text))
   console.log(text, filterd)
     this.setState ({
         activeElements: filterd
