@@ -20,6 +20,7 @@ export class Table extends React.Component {
         <div>
             <SearchInput filter={this.handleFilterList}/>
       <table>
+        <tbody>
         {this.state.activeElements.map((item, index) => (
           <Row
             key={index}
@@ -29,6 +30,7 @@ export class Table extends React.Component {
             image={item.image}
           />
         ))}
+        </tbody>
       </table>
       </div>
 
@@ -38,13 +40,28 @@ export class Table extends React.Component {
 
 export class Row extends React.Component {
   render() {
+
+    
+    const rowStyle = {
+        backgroundColor: "beige",
+    }
+
+    const columnStyle = {
+        border: "1px solid black",
+    }
+
+    const imgStyle = {
+        width: "100px",
+        height: "100px",
+    }
+
     return (
-      <tr>
-        <td> {this.props.firstName} </td>
-        <td> {this.props.lastName} </td>
-        <td> {this.props.phone} </td>
-        <td>
-          <img src={this.props.image} />
+      <tr style={rowStyle}>
+        <td style={columnStyle}> {this.props.firstName} </td>
+        <td style={columnStyle}> {this.props.lastName} </td>
+        <td style={columnStyle}> {this.props.phone} </td>
+        <td style={columnStyle}>
+          <img style={imgStyle} src={this.props.image} />
         </td>
       </tr>
     );
@@ -69,6 +86,11 @@ export class SearchInput extends React.Component {
     }
 
     render () {
-        return <input name="search" value={this.state.value} onChange={this.onChange} />
+
+        const inputStyle = {
+            border: "3px solid black"
+        }
+
+        return <input style={inputStyle} name="search" value={this.state.value} onChange={this.onChange} placeholder={"Type here to search"}/>
     }
 }
