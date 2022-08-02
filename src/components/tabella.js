@@ -61,7 +61,7 @@ export class Row extends React.Component {
         <td style={columnStyle}> {this.props.lastName} </td>
         <td style={columnStyle}> {this.props.phone} </td>
         <td style={columnStyle}>
-          <img style={imgStyle} src={this.props.image} />
+          <img style={imgStyle} src={this.props.image} alt=""/>
         </td>
       </tr>
     );
